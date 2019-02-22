@@ -165,7 +165,7 @@ class ReadBootProtocolPacket(object):
         self.XID = self.transaction_id = struct.unpack('>I', data[4:8])[0]
 
         self.seconds_elapsed = self.SECS = shortunpack(data[8:10])
-        self.bootp_flags = self.FLAGS =    shortunpack(data[8:10])
+        self.bootp_flags = self.FLAGS =    shortunpack(data[10:12])
 
         self.client_ip_address = self.CIADDR = inet_ntoa(data[12:16])
         self.your_ip_address   = self.YIADDR = inet_ntoa(data[16:20])
